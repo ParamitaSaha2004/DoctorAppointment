@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Login</title>
+</head>
+<body>
+    <div id="header">
+        <h1>Doctor Patient Appointment Booking</h1>
+    </div>
+        <div class="navbar">
+            <a href="index.html" id="abc">All</a>
+            <a href="login.html" id="abc">Login</a>
+            <a href="doctors.html" id="abc">Available Doctors</a>
+            <a href="appointment.html" id="abc">Book Appointment</a>
+            <a href="my_appointment.html" id="abc">My Appointment</a> 
+           <div>
+            <h6>Contact No: xxxxxxxxx
+                <br>
+                Email Id: Medserve@gmail.com
+            </h6>
+            </div>
+        </div>
+        <br>
+        <div class="container">
+            <h2>Register</h2>
+            <form id="registrationForm">
+                <div class="form-group">
+                    <label for="registerName">Name:</label>
+                    <input type="text" id="registerName" placeholder="Enter your name" required>
+                </div>
+                <div class="form-group">
+                    <label for="registerEmail">Email:</label>
+                    <input type="email" id="registerEmail" placeholder="Enter your email" required>
+                </div>
+                <div class="form-group">
+                    <label for="registerPassword">Password:</label>
+                    <input type="password" id="registerPassword" placeholder="Enter your password" required>
+                </div>
+                <button type="submit">Register</button>
+            </form>
+            <p>Already have an account? <a href="login.html">Login here</a></p>
+        </div>
+
+        <div class="location optn">
+        <h3>Select Location</h3>
+        <select name="location" required>
+            <option value="">Select Location</option>
+            <option value="City Clinic">City Clinic</option>
+            <option value="Downtown Hospital">Downtown Hospital</option>
+            <option value="Northside Medical Center">Northside Medical Center</option>
+            <option value="Eastside Health">Eastside Health</option>
+        </select>
+        </div>
+        <br>
+
+        <!-- Select Lab Test -->
+         <div class="labTest optn">
+        <h3>Book a Lab Test (Optional)</h3>
+        <select name="labTest">
+            <option value="">Select Lab Test</option>
+            <option value="Blood Test">Blood Test</option>
+            <option value="Urine Test">Urine Test</option>
+            <option value="MRI Scan">MRI Scan</option>
+            <option value="X-Ray">X-Ray</option>
+        </select>
+        </div>
+
+        <!-- Order Medicines -->
+         <div class="medicines optn">
+        <h3>Order Medicines (Optional)</h3>
+        <textarea name="medicines" placeholder="List the medicines you want to order"></textarea>
+        
+         </div>
+    
+    <script src="script.js"></script>
+</body>
+</html>

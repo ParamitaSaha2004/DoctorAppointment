@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>My Appointment</title>
+</head>
+<body>
+    <div class="container">
+        <h2>Your Upcoming Appointment</h2>
+        <div id="appointmentDetails"></div>
+        <a href="index.html" class="button">Back to Home</a>
+    </div>
+
+    <script>
+        // Retrieve the appointment details from sessionStorage
+        const appointmentDetails = JSON.parse(sessionStorage.getItem('appointmentDetails'));
+
+        const appointmentDetailsDiv = document.getElementById('appointmentDetails');
+
+        if (appointmentDetails) {
+            // Display appointment details
+            appointmentDetailsDiv.innerHTML = `
+                <p>Name: ${appointmentDetails.name}</p>
+                <p>Date: ${appointmentDetails.date}</p>
+                <p>Time Slot: ${appointmentDetails.timeSlot}</p>
+                <p>Doctor: ${appointmentDetails.doctor}</p>
+            `;
+        } else {
+            // No appointment details available
+            appointmentDetailsDiv.innerHTML = '<p>No upcoming appointments found.</p>';
+        }
+    </script>
+</body>
+</html>
+
