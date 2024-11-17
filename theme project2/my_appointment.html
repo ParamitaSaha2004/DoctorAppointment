@@ -4,34 +4,70 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
-    <title>My Appointment</title>
+    <title>My Appointments</title>
 </head>
 <body>
-    <div class="container">
-        <h2>Your Upcoming Appointment</h2>
-        <div id="appointmentDetails"></div>
+    <div class="appointments">
+        <h2>My Appointments</h2>
+        <div id="appointmentDetails">
+            <!-- Appointment details will be displayed here -->
+        </div>
+        <a href="appointment.html" class="button">Book Another Appointment</a>
         <a href="index.html" class="button">Back to Home</a>
     </div>
+    <br>
+    <h1>Lab Test Confirmation</h1>
+        <div id="testDetails"></div>
 
     <script>
-        // Retrieve the appointment details from sessionStorage
+        // Retrieve appointment details from sessionStorage
         const appointmentDetails = JSON.parse(sessionStorage.getItem('appointmentDetails'));
 
-        const appointmentDetailsDiv = document.getElementById('appointmentDetails');
+        // Get the container to display appointment details
+        const appointmentDetailsContainer = document.getElementById('appointmentDetails');
 
         if (appointmentDetails) {
-            // Display appointment details
-            appointmentDetailsDiv.innerHTML = `
-                <p>Name: ${appointmentDetails.name}</p>
-                <p>Date: ${appointmentDetails.date}</p>
-                <p>Time Slot: ${appointmentDetails.timeSlot}</p>
-                <p>Doctor: ${appointmentDetails.doctor}</p>
+            // Create a display message
+            const message = `
+                <p><strong>Patient Name:</strong> ${appointmentDetails.name}</p>
+                <p><strong>Doctor:</strong> Dr. ${appointmentDetails.doctor}</p>
+                <p><strong>Date:</strong> ${appointmentDetails.date}</p>
+                <p><strong>Time Slot:</strong> ${appointmentDetails.timeSlot}</p>
+                <button id="cancelAppointmentButton" class="button">Cancel Appointment</button>
             `;
+
+            // Insert the message into the container
+            appointmentDetailsContainer.innerHTML = message;
+
+            // Cancel Appointment button functionality
+            document.getElementById('cancelAppointmentButton').addEventListener('click', function () {
+                const cancelConfirmation = confirm("Are you sure you want to cancel your appointment?");
+                if (cancelConfirmation) {
+                    // Clear the sessionStorage and update the container
+                    sessionStorage.removeItem('appointmentDetails');
+                    appointmentDetailsContainer.innerHTML = "<p>Your appointment has been cancelled.</p>";
+                }
+            });
         } else {
-            // No appointment details available
-            appointmentDetailsDiv.innerHTML = '<p>No upcoming appointments found.</p>';
+            // If no appointment is found, display a message
+            appointmentDetailsContainer.innerHTML = "<p>You have no appointments booked.</p>";
         }
+        //////////////////////////////////////////////
+        const details = JSON.parse(localStorage.getItem("labTestDetails"));
+
+if (details) {
+    document.getElementById("testDetails").innerHTML = `
+        <p>Patient Name: ${details.patientName}</p>
+        <p>Test Type: ${details.testType}</p>
+        <p>Date: ${details.testDate}</p>
+        <p>Time: ${details.testTime}</p>
+    `;
+} else {
+    document.getElementById("testDetails").innerHTML = "<p>No test details found.</p>";
+}
     </script>
 </body>
 </html>
+
+
 

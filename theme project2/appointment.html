@@ -9,50 +9,47 @@
 <body>
     <div class="container">
         <h2>Book an Appointment</h2>
-        <form id="appointmentForm" action="confirmation.html" method="GET">
+        <form id="appointmentForm">
+            <label for="nameSelect">Enter Name:</label>
             <input type="text" name="name" placeholder="Your Name" required>
+            <label for="dateSelect">Select Date:</label>
             <input type="date" name="date" required>
+            <label for="timeSelect">Select Time:</label>
             <select name="timeSlot" required>
                 <option value="">Select Time Slot</option>
                 <option value="9:00 AM - 10:00 AM">9:00 AM - 10:00 AM</option>
                 <option value="12:00 PM - 1:00 PM">12:00 PM - 1:00 PM</option>
                 <option value="3:00 PM - 4:00 PM">3:00 PM - 4:00 PM</option>
             </select>
-            <select name="doctor" required>
-                <option value="">Select Doctor</option>
-                <option value="Dr. Swata Saha ">Dr. Swata Saha </option>
-                <option value="Dr. JS Ghosh">Dr. JS Ghosh</option>
-                <option value="Dr. Brown">Dr. Brown</option>
-                <option value="Dr. Saha">Dr. Saha </option>
-                <option value="Dr. RD Banik">Dr. RD Banik</option>
-                <option value="Dr. J Pattle">Dr. J Pattle</option>
-                <option value="Dr.  Dhrisha Sharma">Dr.  Dhrisha Sharma</option>
-                <option value="Dr. Anurag Das">Dr. Anurag Das</option>
-                <option value="Dr. Rajesh Pal">Dr. Rajesh Pal</option>
-                <option value="Dr. Aniksha Debnath">Dr. Aniksha Debnath</option>
-                <option value="Dr. Anurag Das">Dr. Anurag Das</option>
-                <option value="Dr. Rani Paul">Dr. Rani Paul</option>
-                <option value="Dr. Sharma">Dr. Sharma</option>
-                <option value="Dr. Diya Majumdar">Dr. Diya Majumdar</option>
-                <option value="Dr. Priyam Nath">Dr. Priyam Nath</option>
-                <option value="Dr.  Bose">Dr.  Bose</option>
-                <option value="Dr. Sr Das">Dr. Sr Das</option>
-                <option value="Dr. RK Roy">Dr. RK Roy</option>
-                
+
+            <!-- Doctor Selection -->
+            <label for="doctorSelect">Select Doctor:</label>
+            <select id="doctorSelect" name="doctor" required>
+                <option value="">Select a Doctor</option>
+                <!-- Dynamically populated by JS -->
             </select>
 
+            <!-- Doctor ID Card Preview -->
+            <div id="doctorPreview" style="display: none;">
+                <img id="doctorImage" src="" alt="Doctor's Profile Photo">
+                <p id="doctorName"></p>
+                <p id="doctorSpecialty"></p>
+                <p id="doctorExperience"></p>
+            </div>
+
             <select name="location" required>
-                <option value="">Select Location</option>
-                <option value="City Clinic">City Clinic</option>
-                
+                <option value="">Select location</op0 AMtion>
+                <option value="city clinic">City Clinic, Agartala</option>
             </select>
+
             <button type="submit">Book Appointment</button>
         </form>
     </div>
 
-    <script src="appointment.js"></script>
+    <script src="script.js"></script>
 </body>
 </html>
+
 
 
 

@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -9,41 +10,36 @@
 <body>
     <div class="confirmation">
         <div class="confirmation-box">
-        <h2>Appointment Confirmed!</h2>
-        <p id="confirmationMessage"></p>
+            <h2>Appointment Confirmed!</h2>
+            <p id="confirmationMessage"></p>
 
-        <button id="cancelAppointmentButton" class="button">Cancel Appointment</button>
-        <a href="appointment.html" class="button">Book Another Appointment</a>
-        <a href="index.html" class="button">Back to Home</a>
-    </div>
+            <button id="cancelAppointmentButton" class="button">Cancel Appointment</button>
+            <a href="appointment.html" class="button">Book Another Appointment</a>
+            <a href="index.html" class="button">Back to Home</a>
+        </div>
+
+        
     </div>
 
     <script>
-        // Get URL parameters
-        const urlParams = new URLSearchParams(window.location.search);
-        const name = urlParams.get('name');
-        const date = urlParams.get('date');
-        const timeSlot = urlParams.get('timeSlot');
-        const doctor = urlParams.get('doctor');
+        // Retrieve appointment details from sessionStorage
+        const appointmentDetails = JSON.parse(sessionStorage.getItem('appointmentDetails'));
 
-        // Display confirmation message
-        const message = `Thank you, ${name}! Your appointment with ${doctor} is confirmed for ${date} at ${timeSlot}.`;
-        document.getElementById('confirmationMessage').textContent = message;
-
-        // Store the appointment details in sessionStorage
-        sessionStorage.setItem('appointmentDetails', JSON.stringify({
-            name: name,
-            date: date,
-            timeSlot: timeSlot,
-            doctor: doctor
-        }));
+        if (appointmentDetails) {
+            // Display the confirmation message
+            const message = `Thank you, ${appointmentDetails.name}! Your appointment with Dr. ${appointmentDetails.doctor} is confirmed for ${appointmentDetails.date} at ${appointmentDetails.timeSlot}.`;
+            document.getElementById('confirmationMessage').textContent = message;
+        } else {
+            // Display an error message if no appointment details are found
+            document.getElementById('confirmationMessage').textContent = "No appointment details found.";
+        }
 
         // Cancel Appointment button functionality
-        document.getElementById('cancelAppointmentButton').addEventListener('click', function() {
+        document.getElementById('cancelAppointmentButton').addEventListener('click', function () {
             const cancelConfirmation = confirm("Are you sure you want to cancel your appointment?");
             if (cancelConfirmation) {
                 // Update the confirmation message to indicate cancellation
-                document.getElementById('confirmationMessage').textContent = `Your appointment with ${doctor} on ${date} at ${timeSlot} has been cancelled.`;
+                document.getElementById('confirmationMessage').textContent = `Your appointment with Dr. ${appointmentDetails.doctor} on ${appointmentDetails.date} at ${appointmentDetails.timeSlot} has been cancelled.`;
 
                 // Clear appointment details from sessionStorage
                 sessionStorage.removeItem('appointmentDetails');
@@ -53,9 +49,9 @@
                 document.getElementById('cancelAppointmentButton').textContent = "Appointment Cancelled";
             }
         });
+        ///////////////////////
+        
     </script>
 </body>
 </html>
-
-
 

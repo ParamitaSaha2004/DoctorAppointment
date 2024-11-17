@@ -16,7 +16,9 @@
             <a href="doctors.html" id="abc">Available Doctors</a>
             <a href="appointment.html" id="abc">Book Appointment</a>
             <a href="my_appointment.html" id="abc">My Appointment</a> 
-           <div>
+            <a href="biolab.html" id="abc">Bio Lab</a> <!-- New Link -->
+            
+            <div>
             <h6>Contact No: xxxxxxxxx
                 <br>
                 Email Id: Medserve@gmail.com
@@ -24,6 +26,7 @@
             </div>
         </div>
         <br>
+        
         <div class="container">
             <h2>Register</h2>
             <form id="registrationForm">
@@ -44,36 +47,23 @@
             <p>Already have an account? <a href="login.html">Login here</a></p>
         </div>
 
-        <div class="location optn">
-        <h3>Select Location</h3>
-        <select name="location" required>
-            <option value="">Select Location</option>
-            <option value="City Clinic">City Clinic</option>
-            <option value="Downtown Hospital">Downtown Hospital</option>
-            <option value="Northside Medical Center">Northside Medical Center</option>
-            <option value="Eastside Health">Eastside Health</option>
-        </select>
-        </div>
-        <br>
-
-        <!-- Select Lab Test -->
-         <div class="labTest optn">
-        <h3>Book a Lab Test (Optional)</h3>
-        <select name="labTest">
-            <option value="">Select Lab Test</option>
-            <option value="Blood Test">Blood Test</option>
-            <option value="Urine Test">Urine Test</option>
-            <option value="MRI Scan">MRI Scan</option>
-            <option value="X-Ray">X-Ray</option>
-        </select>
+        <div class="box">
+            <section id="bio-lab" class="card">
+                <img src="biolab.jpeg" alt="Bio Lab" class="card-image">
+                <a href="labtestbooking.html" class="button">Book an your labTest</a>
+            </section>
+            <section id="shop" class="card">
+                <img src="shop.jpeg" alt="Shop" class="card-image">
+                <div class="card-content">
+                    
+                    <a href="shop.html" class="button">Visit Shop</a>
+                </div>
+            </section>
+          
+            </div>
         </div>
 
-        <!-- Order Medicines -->
-         <div class="medicines optn">
-        <h3>Order Medicines (Optional)</h3>
-        <textarea name="medicines" placeholder="List the medicines you want to order"></textarea>
         
-         </div>
     
     <script src="script.js"></script>
 </body>
